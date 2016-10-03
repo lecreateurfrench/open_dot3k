@@ -9,10 +9,21 @@ import screen, backlight, ledbar, temperature, joystick
 
 MESSAGE = screen.Screen()
 TEMP =  temperature.Temperature()
-LED = ledbar.LedBar)
+LED = ledbar.LedBar()
 SCROLLER = joystick.Scroller()
 LIGHT =  backlight.Backlight()
 INDEX = 0
+
+def main():
+	TEMP.readTemp()
+	if INDEX >= len(TEMP.temperatures):
+		INDEX = 0
+	if INDEX < 0:
+		INDEX = len(TEMP.temperatures) - 1
+	MESSAGE.writeTemp(TEMP.temperatures[INDEX])
+	LIGHT.color(float(TEMP.temperatures[INDEX]))
+	LED.set_size(float(TEMP.temperatures[INDEX]))
+	return
 
 @j.on(j.UP)
 def handle_up(pin):
@@ -36,34 +47,8 @@ def handle_left(pin):
 def handle_left(pin):
 	MESSAGE.clearScreen()
 	LIGHT.power_off()
-	os.kill(os.getpid, signal.SIGKILL)
+	os.kill(os.getpid(), signal.SIGKILL)
 
-def main():
-	TEMP.readTemp()
-	if INDEX >= len(TEMP.temperatures):
-		INDEX = 0
-	if INDEX < 0:
-		INDEX = len(TEMP.temperatures) - 1
-	MESSAGE.writeTemp(TEMP.temperatures[INDEX])
-	LIGHT.color(float(TEMP.temperatures[INDEX]))
-	LED.set_size(float(TEMP.temperatures[INDEX]))
-	return
-
-signal.pause()
-
-if __name__ == '__main__':
-	sys.ex
-
-def main():
-	TEMP.readTemp()
-	if INDEX >= len(TEMP.temperatures):
-		INDEX = 0
-	if INDEX < 0:
-		INDEX = len(TEMP.temperatures) - 1
-	MESSAGE.writeTemp(TEMP.temperatures[INDEX])
-	LIGHT.color(float(TEMP.temperatures[INDEX]))
-	LED.set_size(float(TEMP.temperatures[INDEX]))
-	return
 
 signal.pause()
 
