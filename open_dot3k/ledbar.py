@@ -9,7 +9,7 @@ class LedBar():
 		return
 
 	def set_size(self, temp):
-		for i in range(temp):
+		for i in range(int(temp)):
 			backlight.set_graph(i/self.maxtemp)
 
 

@@ -4,7 +4,7 @@
 import dot3k.joystick as j
 
 
-class scrollnum():
+class Scroller():
 	
 	def __init__(self):
 		self.scrollnum = 0
