@@ -1,3 +1,0 @@
-[console_scripts]
-open_ds18b20 = open_ds18b20.__main__:main
-
