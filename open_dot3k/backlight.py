@@ -1,16 +1,16 @@
 #/usr/bin/python2.7
 
 import dot3k.backlight as backlight
-
+import sys
 class Backlight():
 
 	def __init__(self):
 		self.maxtemp = 50.0
-		self.mintemp = 0.0
+		self.mintemp = 10.0
 		self.step = 255.0 / ((self.maxtemp - self.mintemp)/2)
 
 	def color(self, temp):
-		increment = int(temp * self.step)
+		increment = int((temp - self.mintemp)  * self.step)
 		try: 
 			if temp <= 25:
 				green = 0 + increment
@@ -21,7 +21,8 @@ class Backlight():
 				green = 255 - increment
 				red = 0 + increment
 				blue = 0
-				backlight(red, green, blue)
+				backlight.rgb(red, green, blue)
 		except:
-			backlight(255, 255, 255)
+			backlight.rgb(255, 255, 255)
+			print "exception raised " + sys.exc_info() 
 
