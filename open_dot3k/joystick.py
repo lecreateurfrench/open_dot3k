@@ -7,15 +7,14 @@ import dot3k.joystick as j
 class Scroller():
 	
 	def __init__(self):
-		self.scrollnum = 0
 		return
 
-	@j.on(j.RIGHT)
-	def handle_right(self, pin):
-		self.scrollnum += 1
+	def rightSignal(self, index):
+		index += 1
+		return index
 
-	@j.on(j.LEFT)
-	def handle_left(self, pin):
-		self.scrollnum -= 1
+	def leftSignal(self, index):
+		index -= 1
+		return index
 
 
