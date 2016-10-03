@@ -7,10 +7,10 @@ class Backlight():
 	def __init__(self):
 		self.maxtemp = 50.0
 		self.mintemp = 0.0
-		self.step = 255.0 / (self.maxtemp - self.mintemp)/2
+		self.step = 255.0 / ((self.maxtemp - self.mintemp)/2)
 
 	def color(self, temp):
-		increment = int(temp) * int(self.step)
+		increment = int(temp * self.step)
 		try: 
 			if temp <= 25:
 				green = 0 + increment
