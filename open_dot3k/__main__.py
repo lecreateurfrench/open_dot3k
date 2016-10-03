@@ -4,6 +4,7 @@ import dot3k.joystick as j
 import time
 import sys
 import os
+import signal
 import screen, backlight, ledbar, temperature, joystick
 
 MESSAGE = screen.Screen()
@@ -35,7 +36,8 @@ def handle_left(pin):
 def handle_left(pin):
 	MESSAGE.clearScreen()
 	LIGHT.power_off()
-	os.kill()
+	os.kill(os.getpid, signal.SIGKILL)
+
 def main():
 	TEMP.readTemp()
 	if INDEX >= len(TEMP.temperatures):
