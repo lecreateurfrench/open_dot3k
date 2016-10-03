@@ -13,4 +13,5 @@ class LedBar():
 			backlight.set_graph(i/self.maxtemp)
 
 
-		
+	def ledZero(self):
+		backlight.set_graph(0)
