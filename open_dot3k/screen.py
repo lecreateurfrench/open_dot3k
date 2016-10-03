@@ -13,7 +13,7 @@ class Screen():
 		self.content = "il fait" + str(temp) + "*C"
 		lcd.write(self.content)
 
-	def changeScreen(self):
+	def clearScreen(self):
 		lcd.clear()
 
 
