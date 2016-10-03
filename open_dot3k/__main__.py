@@ -16,6 +16,7 @@ def main():
 		light.color(float(temp.temperatures[0]))
 		led.set_size(float(temp.temperatures[0]))
 		time.sleep(30)
+		message.clearScreen()
 	return
 
 if __name__ == '__main__':
